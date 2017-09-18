@@ -5,8 +5,6 @@ int main( void )
 {
 	float f = 0;
 
-	printf("Enter a number: ");
-
 	scanf( "%f", &f);
 
 	int a = floor(f);
