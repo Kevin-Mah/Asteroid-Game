@@ -10,6 +10,7 @@ int main( void )
 	int x , y;
 	for (x=0; x<breadth; x++)
 	{
+		printf("\n");
 		for ( y = 0; y<width; y++)
 		{
 			if ( x == 0 || x == breadth-1 || y == 0 || y == width-1)
@@ -21,8 +22,8 @@ int main( void )
 				printf(".");
 			}
 		}
-		printf("\n");
 	}
+printf("\n");
 }
 		
 	
