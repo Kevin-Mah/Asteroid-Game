@@ -2,14 +2,18 @@
 
 int main( void )
 {
+	int s = 0;
+	int j = 0;
+	int i;	
 
-	int i = 0;	
-	scanf ( "%d" , &i );
-	while (i>0)
+	while ( s = -1)
 	{
-		printf("#");
-		i--;
+		s = scanf ( "%d", &i );
+		for ( j = 0; j<i; j++)
+		{
+			printf("#");
+		}
+	printf("\n");
 	}
-printf("\n");
-main();
+return 0;
 }
