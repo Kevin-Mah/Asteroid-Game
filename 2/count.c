@@ -2,9 +2,9 @@
 
 int main(void)
 {
-	int charcount = 0;
-	int linecount = 0;
-	int wordcount = 0;
+	long int charcount = 0;
+	long int linecount = 0;
+	long int wordcount = 0;
 	char c;
 
 	while ( c != EOF )
@@ -14,13 +14,11 @@ int main(void)
 		{
 			break;
 		}
+		charcount++;
+		wordcount++;
 		if ((c>='A' && c<='Z') ||(c>='a' && c<='z')|| c=='\'')
 		{
-			charcount++;
-		}
-		else
-		{
-			wordcount++;
+			wordcount--;
 		}
 		if (c == '\n')
 		{
