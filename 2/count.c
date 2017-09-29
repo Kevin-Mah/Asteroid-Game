@@ -14,17 +14,16 @@ int main(void)
 		{
 			break;
 		}
-		if ((c>='A' && c<='z') || c=='\'')
+		if ((c>='A' && c<='Z') ||(c>='a' && c<='z')|| c=='\'')
 		{
 			charcount++;
 		}
-		if (c == ' ')
+		else
 		{
 			wordcount++;
 		}
 		if (c == '\n')
 		{
-			wordcount++;
 			linecount++;
 		}
 	}
