@@ -26,14 +26,14 @@ int main( void )
 				printf("#");
 			}
 				
-			else if ( y> left -1 && y <= right-1)
+			else if ( y> left -1 && y <= right-1 )
 			{
 				printf(".");
 			}
-			else
+			else if ( y <= left-1)
 			{
 				printf(" ");
-			}			
+			}
 		}
 		printf("\n");
 	}
