@@ -34,4 +34,5 @@ int main(void)
 		}
 	}
 printf( "%lu %lu %lu\n", charcount, wordcount, linecount );
+return 0;
 }
