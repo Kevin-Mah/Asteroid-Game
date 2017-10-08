@@ -10,11 +10,11 @@ int main( int argc, char *argv[] )
 
 	if (phrase == NULL)
 	{
-		printf("false");
+		printf("false\n");
 	}
 	else
 	{	
-		printf("true");
+		printf("true\n");
 	}
 return 0;
 }
