@@ -2,18 +2,25 @@
 
 int main( void )
 {
-	int s = 0;
-	int j = 0;
+	int j;
 	int i;	
-
-	while ( s = -1)
+	int s = 0;
+	
+	while (s != EOF)
 	{
-		s = scanf ( "%d", &i );
+		s =  scanf( "%d", &i);
+		if(s == EOF)
+		{
+			break;
+		}
 		for ( j = 0; j<i; j++)
 		{
 			printf("#");
 		}
-	printf("\n");
+		if (i = ' ')
+		{
+			printf("\n");
+		}
 	}
 return 0;
 }
