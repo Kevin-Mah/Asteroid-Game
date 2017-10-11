@@ -81,7 +81,7 @@ uint8_t min( const uint8_t array[],
   for ( int i=0; i<cols*rows; i++)
 {
 	int min = 255;
-	if( array[i] < array[i+1])
+	if( array[i] < min)
 	{ 
 		min = array[i];
 	}
@@ -99,7 +99,7 @@ uint8_t max( const uint8_t array[],
  for ( int i=0; i<cols*rows; i++)
 {
 	int max = 0;
-	if( array[i] > array[i+1])
+	if( array[i] > max)
 	{ 
 		max = array[i];
 	}
