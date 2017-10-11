@@ -49,7 +49,7 @@ void zero( uint8_t array[],
 	   unsigned int cols,
 	   unsigned int rows )
 {
-  // your code here.
+
 }
 
 // Returns a pointer to a freshly allocated array that contains the
@@ -78,7 +78,15 @@ uint8_t min( const uint8_t array[],
 	     unsigned int cols, 
 	     unsigned int rows )
 {
-  // your code here
+  for ( int i=0; i<cols*rows; i++)
+{
+	int min = 255;
+	if( array[i] < array[i+1])
+	{ 
+		min = array[i];
+	}
+}
+		
   return 0;
 }
 
@@ -88,7 +96,14 @@ uint8_t max( const uint8_t array[],
 		 unsigned int cols, 
 		 unsigned int rows )
 {
-  // your code here
+ for ( int i=0; i<cols*rows; i++)
+{
+	int max = 0;
+	if( array[i] > array[i+1])
+	{ 
+		max = array[i];
+	}
+}
   return 0;
 }
 
