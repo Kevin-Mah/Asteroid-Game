@@ -87,7 +87,7 @@ uint8_t min( const uint8_t array[],
 	}
 }
 		
-  return 0;
+  return min;
 }
 
 // Return the lightest color that appears in the array; i.e. the
@@ -104,7 +104,7 @@ uint8_t max( const uint8_t array[],
 		max = array[i];
 	}
 }
-  return 0;
+  return max;
 }
 
 // TASK 2
