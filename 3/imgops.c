@@ -116,7 +116,13 @@ void replace_color(  uint8_t array[],
 		     uint8_t pre_color,
 		     uint8_t post_color )
 {
-  // your code here
+	for ( int i=0; i<cols*rows; i++)
+	{
+		if (array[i] == pre_color)
+		{
+			array [i] = post_color;
+		}
+	}
 }
 
 /* TASK 3  - two functions */
