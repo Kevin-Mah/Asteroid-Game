@@ -78,14 +78,14 @@ uint8_t min( const uint8_t array[],
 	     unsigned int cols, 
 	     unsigned int rows )
 {
-  for ( int i=0; i<cols*rows; i++)
-{
 	int min = 255;
-	if( array[i] < min)
-	{ 
-		min = array[i];
+  	for ( int i=0; i<cols*rows; i++)
+	{
+		if( array[i] < min)
+		{ 
+			min = array[i];
+		}
 	}
-}
 		
   return min;
 }
@@ -96,14 +96,14 @@ uint8_t max( const uint8_t array[],
 		 unsigned int cols, 
 		 unsigned int rows )
 {
- for ( int i=0; i<cols*rows; i++)
-{
 	int max = 0;
-	if( array[i] > max)
-	{ 
-		max = array[i];
+	for ( int i=0; i<cols*rows; i++)
+	{
+		if( array[i] > max)
+		{ 
+			max = array[i];
+		}
 	}
-}
   return max;
 }
 
