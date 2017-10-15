@@ -139,7 +139,7 @@ void flip_horizontal( uint8_t array[],
 		for (int j=0; j<cols/2; j++)
 		{
 			tmp = array[(cols*i)+j];
-			array[(cols*i)+j] = array[(cols*(i+1))-j];
+			array[(cols*i)+j] = array[(cols*(i+1))-j-1];
 			array[(cols*(i+1))-j] = tmp;
 		}
 	}			
