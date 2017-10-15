@@ -133,7 +133,16 @@ void flip_horizontal( uint8_t array[],
               unsigned int cols, 
               unsigned int rows )
 {
-  // your code here
+	int tmp;
+	for (int i=0; i<rows; i++)
+	{
+		for (int j=0; j<cols/2; j++)
+		{
+			tmp = array[(cols*i)+j];
+			array[(cols*i)+j] = array[(cols*(i+1))-j];
+			array[(cols*(i+1))-j] = tmp;
+		}
+	}			
 }
 
 // flip the image top-to-bottom.
@@ -141,7 +150,16 @@ void flip_vertical( uint8_t array[],
             unsigned int cols, 
             unsigned int rows )
 {
-    // your code here
+	int tmp;
+	for (int i=0; i<rows/2; i++)
+	{
+		for (int j=0; j<cols; j++)
+		{
+			tmp = array[(cols*i)+j];
+			array[(cols*i)+j] = array[(cols*(rows-1-i))+j];
+			array[(cols*(rows-1-i))+j] = tmp;
+		}
+	}	
 }
 
 /* TASK 4 */
