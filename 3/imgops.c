@@ -203,7 +203,7 @@ void invert( uint8_t array[],
 	{
 		for (int j=0; j<cols; j++)
 		{
-			array[(cols*i)+j] = 256-array[(cols*i)+j];
+			array[(cols*i)+j] = 255-array[(cols*i)+j];
 		}
 	}
 }
