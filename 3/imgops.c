@@ -181,8 +181,8 @@ int locate_color(  const uint8_t array[],
 		{
 			if (array[(cols*i)+j] == color)
 			{
-				x = i;
-				y = j;
+				*x = i;
+				*y = j;
 				return 1;
 			}
 		}
@@ -199,7 +199,13 @@ void invert( uint8_t array[],
          unsigned int cols, 
          unsigned int rows )
 {
-    // your code here
+	for (int i=0; i<rows; i++)
+	{
+		for (int j=0; j<cols; j++)
+		{
+			array[(cols*i)+j] = 256-array[(cols*i)+j];
+		}
+	}
 }
 
 /* TASK 6 */
