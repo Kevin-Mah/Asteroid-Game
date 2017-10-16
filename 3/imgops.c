@@ -185,9 +185,12 @@ int locate_color(  const uint8_t array[],
 				*y = j;
 				return 1;
 			}
+			else
+			{
+				return 0;
+			}
 		}
 	}	
-return 0;
 }
 
 
