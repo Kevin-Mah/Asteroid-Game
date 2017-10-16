@@ -181,16 +181,13 @@ int locate_color(  const uint8_t array[],
 		{
 			if (array[(cols*i)+j] == color)
 			{
-				*x = i;
-				*y = j;
+				x = i;
+				y = j;
 				return 1;
 			}
-			else
-			{
-				return 0;
-			}
 		}
-	}	
+	}
+return 0;	
 }
 
 
