@@ -175,8 +175,19 @@ int locate_color(  const uint8_t array[],
 		   unsigned int *x,
 		   unsigned int *y )
 {
-    // your code here
-    return 0;
+	for (int i=0; i<rows; i++)
+	{
+		for (int j=0; j<cols; j++)
+		{
+			if (array[(cols*i)+j] == color)
+			{
+				*x = i;
+				*y = j;
+				return 1;
+			}
+		}
+	}	
+return 0;
 }
 
 
