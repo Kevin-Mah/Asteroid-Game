@@ -244,7 +244,7 @@ void normalize( uint8_t array[],
 		{
 			array[i] = 0;
 		}
-		else if (array[i] == max)
+		if (array[i] == max)
 		{
 			array[i] = 255;
 		}
