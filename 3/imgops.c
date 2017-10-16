@@ -238,7 +238,17 @@ void normalize( uint8_t array[],
         unsigned int cols,
         unsigned int rows )
 {
-    // your code here
+	for (int i=0; i<rows*cols; i++)
+	{
+		if (array[i] == min)
+		{
+			array[i] = 0;
+		}
+		else if (array[i] == max)
+		{
+			array[i] = 255;
+		}
+	}
 }
 
 /* TASK 8 */
