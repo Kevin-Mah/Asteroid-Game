@@ -222,7 +222,7 @@ void scale_brightness( uint8_t array[],
 	{
 		for (int j=0; j<cols; j++)
 		{
-			array[(cols*i)+j] = (array[(cols*i)+j]*scale_factor)+1;
+			array[(cols*i)+j] = round(array[(cols*i)+j]*scale_factor);
 			if (array[(cols*i)+j] > 255)
 			{
 				array[(cols*i)+j] = 255;
