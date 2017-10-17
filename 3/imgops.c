@@ -259,8 +259,19 @@ uint8_t* half( const uint8_t array[],
 	       unsigned int cols,
 	       unsigned int rows )
 {
-  // your code here
-  return NULL;
+	int total, a;
+	uint8_t new_array[(rows/2)*(cols/2)];
+	for (int i=0; i<rows; i+=2)
+	{
+		for (int j=0; j<cols; j+=2)
+		{
+			total = array[(cols*i)+j] + array[(cols*i)+j+1] + array[(cols*(i+1))+j] + 					array[(cols*(i+1)+j+1)];
+	
+			new_array[a] = total/4;
+			a++;
+		}
+	}
+  return new_array;
 }
 
 
