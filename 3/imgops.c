@@ -259,8 +259,9 @@ uint8_t* half( const uint8_t array[],
 	       unsigned int cols,
 	       unsigned int rows )
 {
-	int total, a;
-	uint8_t new_array[(rows/2)*(cols/2)];
+	int total;
+	int a = 0;
+	uint8_t* new_array = ((cols/2)*(rows/2)*sizeof(uint8_t));
 	for (int i=0; i<rows; i+=2)
 	{
 		for (int j=0; j<cols; j+=2)
