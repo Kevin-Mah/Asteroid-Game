@@ -220,7 +220,7 @@ void scale_brightness( uint8_t array[],
 {
 	for (int i=0; i<rows*cols; i++)
 	{
-		array[i] = round(array[i]*scale_factor);
+		array[i] = array[i]*scale_factor;
 		if (array[i] >= 255)
 		{
 			array[i] = 255;
@@ -243,7 +243,7 @@ void normalize( uint8_t array[],
 	for (int i=0; i<rows*cols; i++)
 	{
 		array[i] = array[i]-lscale;
-		array[i] = round(array[i]*255/(uscale-lscale));
+		array[i] = array[i]*255/(uscale-lscale);
 	}
 }
 
