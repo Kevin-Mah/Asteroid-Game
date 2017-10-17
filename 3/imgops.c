@@ -238,18 +238,12 @@ void normalize( uint8_t array[],
         unsigned int cols,
         unsigned int rows )
 {
-	int lscale = min;
-	int uscale = 255 - max;
+	int lscale = min(array, cols, rows);
+	int uscale = max(array, cols, rows);
 	for (int i=0; i<rows*cols; i++)
 	{
-		if (array[i] <=127 )
-		{
-			array[i] = array[i]-lscale;
-		}
-		if (array[i] >=128)
-		{
-			array[i] = array[i]+uscale;
-		}
+		array[i] = array[i]-lscale;
+		array[i] = round(array[i]*255/(uscale-lscale));
 	}
 }
 
