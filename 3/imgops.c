@@ -313,9 +313,9 @@ void region_set( uint8_t array[],
          unsigned int bottom,
          uint8_t color )
 {
-	for (int i=0; i<rows; i+=2)
+	for (int i=0; i<rows; i++)
 	{
-		for (int j=0; j<cols; j+=2)
+		for (int j=0; j<cols; j++)
 		{
 			if ( left == right || top == bottom)
 			{
@@ -343,9 +343,9 @@ unsigned long int region_integrate( const uint8_t array[],
                     unsigned int bottom )
 {
 	int sum = 0;
-	for (int i=0; i<rows; i+=2)
+	for (int i=0; i<rows; i++)
 	{
-		for (int j=0; j<cols; j+=2)
+		for (int j=0; j<cols; j++)
 		{
 			if ( left == right || top == bottom)
 			{
