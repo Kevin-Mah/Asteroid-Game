@@ -313,7 +313,20 @@ void region_set( uint8_t array[],
          unsigned int bottom,
          uint8_t color )
 {
-    // your code here
+	for (int i=0; i<rows; i+=2)
+	{
+		for (int j=0; j<cols; j+=2)
+		{
+			if ( left == right || top == bottom)
+			{
+				break;
+			}
+			if ( i>=top && i<bottom && j>=left && j<right)
+			{
+				array[(cols*i)+j] = color;
+			}
+		}
+	}
 }
 
 /* TASK 10 */
