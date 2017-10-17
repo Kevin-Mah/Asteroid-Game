@@ -321,7 +321,7 @@ void region_set( uint8_t array[],
 			{
 				break;
 			}
-			if ( i>=top && i<bottom && j>=left && j<right)
+			if ( i>=top && i<=bottom-1 && j>=left && j<=right-1)
 			{
 				array[(cols*i)+j] = color;
 			}
@@ -342,8 +342,23 @@ unsigned long int region_integrate( const uint8_t array[],
                     unsigned int right,
                     unsigned int bottom )
 {
-    // your code here
-    return 0;
+	int sum = 0;
+	for (int i=0; i<rows; i+=2)
+	{
+		for (int j=0; j<cols; j+=2)
+		{
+			if ( left == right || top == bottom)
+			{
+				sum = 0;
+				break;
+			}
+			if ( i>=top && i<=bottom-1 && j>=left && j<=right-1)
+			{
+				sum += array[(cols*i)+j];
+			}
+		}
+	}	
+return sum;
 }
 
 /* TASK 11 */
