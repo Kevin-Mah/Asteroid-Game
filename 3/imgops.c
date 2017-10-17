@@ -259,16 +259,16 @@ uint8_t* half( const uint8_t array[],
 	       unsigned int cols,
 	       unsigned int rows )
 {
-	int total;
+	int total=0;
 	int a = 0;
-	uint8_t* new_array = ((cols/2)*(rows/2)*sizeof(uint8_t));
+	uint8_t* new_array = malloc((rows/2)*(cols/2)*sizeof(uint8_t));
 	for (int i=0; i<rows; i+=2)
 	{
 		for (int j=0; j<cols; j+=2)
 		{
 			total = array[(cols*i)+j] + array[(cols*i)+j+1] + array[(cols*(i+1))+j] + 					array[(cols*(i+1)+j+1)];
 	
-			new_array[a] = total/4;
+			new_array[a] = round(total/4);
 			a++;
 		}
 	}
