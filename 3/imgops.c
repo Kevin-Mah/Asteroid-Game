@@ -244,8 +244,8 @@ void normalize( uint8_t array[],
         unsigned int rows )
 {
 	float a;
-	int lscale = min(array, cols, rows);
-	int uscale = max(array, cols, rows);
+	float lscale = min(array, cols, rows);
+	float uscale = max(array, cols, rows);
 	for (int i=0; i<rows*cols; i++)
 	{
 		array[i] = array[i]-lscale;
