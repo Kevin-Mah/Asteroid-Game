@@ -218,13 +218,17 @@ void scale_brightness( uint8_t array[],
             unsigned int rows,
             double scale_factor )
 {
+	float a;
 	for (int i=0; i<rows*cols; i++)
 	{
-		array[i] = round(array[i]*scale_factor);
-		if (array[i] >= 255)
+		a = round(array[i]*scale_factor);
+		if (a >= 255)
 		{
 			array[i] = 255;
 		}
+		else
+		{
+			array[i] = a;
 	}
 }
 
@@ -238,12 +242,14 @@ void normalize( uint8_t array[],
         unsigned int cols,
         unsigned int rows )
 {
+	float a;
 	int lscale = min(array, cols, rows);
 	int uscale = max(array, cols, rows);
 	for (int i=0; i<rows*cols; i++)
 	{
 		array[i] = array[i]-lscale;
-		array[i] = round(array[i]*255/(uscale-lscale));
+		a = round(array[i]*255/(uscale-lscale));
+		array[i] = a;
 	}
 }
 
@@ -259,7 +265,7 @@ uint8_t* half( const uint8_t array[],
 	       unsigned int cols,
 	       unsigned int rows )
 {
-	float total=0;
+	float total;
 	int a = 0;
 	uint8_t* new_array = malloc((rows/2)*(cols/2)*sizeof(uint8_t));
 	for (int i=0; i<rows; i+=2)
