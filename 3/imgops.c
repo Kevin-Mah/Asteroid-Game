@@ -229,6 +229,7 @@ void scale_brightness( uint8_t array[],
 		else
 		{
 			array[i] = a;
+		}
 	}
 }
 
