@@ -393,7 +393,6 @@ uint8_t* region_copy( const uint8_t array[],
 			}
 		}
 	}					
-return NULL;
 }
 
 
