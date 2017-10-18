@@ -388,7 +388,7 @@ uint8_t* region_copy( const uint8_t array[],
 	}
 	
 	uint8_t* new_array = malloc((right-left)*(bottom-top)*sizeof(uint8_t));
-	int a;
+	int a = 0;
 	for (int i=0; i<rows; i++)
 	{
 		for (int j=0; j<cols; j++)
@@ -399,7 +399,8 @@ uint8_t* region_copy( const uint8_t array[],
 				a++;
 			}
 		}
-	}					
+	}
+return new_array;					
 }
 
 
