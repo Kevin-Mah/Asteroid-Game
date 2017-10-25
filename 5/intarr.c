@@ -110,10 +110,9 @@ intarr_t* intarr_copy( const intarr_t* ia )
 	}
 	
 	dup->len = ia->len;
-	unsigned int copy_size = (dup->len)*sizeof(int);
-	dup->data = malloc(copy_size);
+	dup->data = malloc((dup->len)*sizeof(int));
 
-	memcpy(dup->data, ia->data, copy_size);
+	memcpy(dup->data, ia->data, (dup->len)*sizeof(int));
 	
 }
 
