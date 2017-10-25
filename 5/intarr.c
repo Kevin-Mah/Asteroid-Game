@@ -31,7 +31,7 @@ intarr_t* intarr_create( unsigned int len )
 	{
 		return NULL;
 	}
-
+	arr->data = malloc((arr->len)*sizeof(int));
 	return arr;
 }
 
@@ -101,7 +101,22 @@ intarr_result_t intarr_get( const intarr_t* ia,
 // allocation for the copy fails, or ia is null), return a null pointer. 
 intarr_t* intarr_copy( const intarr_t* ia )
 {
+	intarr_t* dup = malloc(sizeof(intarr_t));
 
+	if (ia == NULL)
+	{
+		return NULL;
+	}
+	
+	unsigned int copy_size = (ia->len)*sizeof(int);
+	dup->data = malloc(copy_size);
+
+	memcpy(dup->data, ia->data, copy_size);
+	if (dup == NULL)
+	{
+		return NULL;
+	}
+	
 }
 
 /* LAB 5 TASK 4 */
