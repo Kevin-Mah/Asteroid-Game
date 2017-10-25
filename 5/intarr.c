@@ -114,6 +114,8 @@ intarr_t* intarr_copy( const intarr_t* ia )
 	dup->data = malloc(numbytes);
 
 	memcpy(dup->data, ia->data, numbytes);
+
+return dup;
 	
 }
 
