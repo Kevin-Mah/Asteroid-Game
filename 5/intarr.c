@@ -127,7 +127,23 @@ return dup;
 // INTARR_BADARRAY.
 intarr_result_t intarr_sort( intarr_t* ia )
 {
-
+	if (ia == NULL)
+	{
+		return INTARR_BADARRAY;
+	}
+	
+	int min;
+	
+	for (int i = 0; i<ia->len; i++)
+	{
+		if (ia->data[i]>ia->data[i+1])
+		{
+			int tmp = ia->data[i];
+			ia->data[i] = ia->data[i+1];
+			ia->data[i+1] = tmp;
+		}
+	}
+return INTARR_OK;
 }
 
 /* LAB 5 TASK 5 */
