@@ -157,7 +157,20 @@ return INTARR_OK;
 // null, return INTARR_BADARRAY.
 intarr_result_t intarr_find( intarr_t* ia, int target, int* i )
 {
+	if (ia == NULL)
+	{
+		return INTARR_BADARRAY;
+	}
 
+	for (int j = 0; j<ia->len; j++)
+	{
+		if (ia->data[j] == target && i != NULL)
+		{
+			*i = j;
+			return INTARR_OK;
+		}
+	}
+return INTARR_NOTFOUND;
 }
 
 /* LAB 5 TASK 6 */
