@@ -137,7 +137,7 @@ intarr_result_t intarr_sort( intarr_t* ia )
 	for (int i = 1; i<ia->len; i++)
 	{
 		int j=i;
-		while ( j>0 && ia->data[i] < ia->data[i-1]
+		while ( j>0 && ia->data[i] < ia->data[i-1])
 		{
 			tmp = ia->data[i];
 			ia->data[i] = ia->data[i-1];
