@@ -60,7 +60,7 @@ intarr_result_t intarr_set( intarr_t* ia,
 		return INTARR_BADARRAY;
 	}
 
-	if (index > 0)
+	if (index < len)
 	{
 		ia->data[index] = val;
 		return INTARR_OK;
