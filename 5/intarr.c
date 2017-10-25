@@ -104,19 +104,16 @@ intarr_t* intarr_copy( const intarr_t* ia )
 {
 	intarr_t* dup = malloc(sizeof(intarr_t));
 
-	if (ia == NULL)
+	if (ia == NULL || dup == NULL)
 	{
 		return NULL;
 	}
 	
-	unsigned int copy_size = (ia->len)*sizeof(int);
+	dup->len = ia->len;
+	unsigned int copy_size = (dup->len)*sizeof(int);
 	dup->data = malloc(copy_size);
 
 	memcpy(dup->data, ia->data, copy_size);
-	if (dup == NULL)
-	{
-		return NULL;
-	}
 	
 }
 
