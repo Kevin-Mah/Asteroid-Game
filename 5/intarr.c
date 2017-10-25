@@ -132,15 +132,17 @@ intarr_result_t intarr_sort( intarr_t* ia )
 		return INTARR_BADARRAY;
 	}
 	
-	int min;
+	int tmp;
 	
-	for (int i = 0; i<ia->len; i++)
+	for (int i = 1; i<ia->len; i++)
 	{
-		if (ia->data[i]>ia->data[i+1])
+		int j=i;
+		while ( j>0 && ia->data[i] < ia->data[i-1]
 		{
-			int tmp = ia->data[i];
-			ia->data[i] = ia->data[i+1];
-			ia->data[i+1] = tmp;
+			tmp = ia->data[i];
+			ia->data[i] = ia->data[i-1];
+			ia->data[i-1] = tmp;
+			j--;
 		}
 	}
 return INTARR_OK;
