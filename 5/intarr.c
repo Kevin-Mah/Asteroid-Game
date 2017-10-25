@@ -31,7 +31,7 @@ intarr_t* intarr_create( unsigned int len )
 	{
 		return NULL;
 	}
-	arr->data = malloc((arr->len)*sizeof(int));
+	arr->len = len;
 	return arr;
 }
 
