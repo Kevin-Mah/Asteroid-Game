@@ -84,7 +84,7 @@ intarr_result_t intarr_get( const intarr_t* ia,
 		return INTARR_BADARRAY;
 	}
 	
-	if (index > 0 && i != NULL)
+	if (index < ia->len && i != NULL)
 	{
 		*i = ia->data[index];
 		return INTARR_OK;
