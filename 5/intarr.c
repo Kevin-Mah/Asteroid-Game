@@ -219,7 +219,7 @@ intarr_result_t intarr_pop( intarr_t* ia, int* i )
 		return INTARR_BADARRAY;
 	}
 
-	if (ia->len == 0)
+	if (ia->data[0] == 0)
 	{
 		return INTARR_BADINDEX;
 	}
