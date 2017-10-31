@@ -110,6 +110,7 @@ intarr_t* intarr_copy( const intarr_t* ia )
 	}
 	
 	dup->len = ia->len;
+	// intiallizing size of duplicate array
 	unsigned int numbytes = (dup->len)*sizeof(int);
 	dup->data = malloc(numbytes);
 
@@ -223,7 +224,7 @@ intarr_result_t intarr_pop( intarr_t* ia, int* i )
 		return INTARR_BADINDEX;
 	}
 	
-	if ( i != NULL)
+	else if ( i != NULL)
 	{
 		*i = ia->data[ia->len-1];
 		ia->data[ia->len-1] = 0;
