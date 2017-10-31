@@ -218,18 +218,14 @@ intarr_result_t intarr_pop( intarr_t* ia, int* i )
 	{
 		return INTARR_BADARRAY;
 	}
-
-	if (ia->data[0] == 0)
-	{
-		return INTARR_BADINDEX;
-	}
 	
-	else if ( i != NULL)
+	if ( i != NULL)
 	{
 		*i = ia->data[ia->len-1];
 		ia->data[ia->len-1] = 0;
 		return INTARR_OK;
 	}
+	return INTARR_BADINDEX;
 }
 
 /* LAB 5 TASK 7 */
