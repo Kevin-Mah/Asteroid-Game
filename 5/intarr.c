@@ -134,6 +134,7 @@ intarr_result_t intarr_sort( intarr_t* ia )
 	
 	int tmp;
 	
+	// insertion sort
 	for (int i = 1; i<ia->len; i++)
 	{
 		int j=i;
@@ -180,7 +181,30 @@ return INTARR_NOTFOUND;
 // INTARR_BADALLOC. If ia is null, return INTARR_BADARRAY.
 intarr_result_t intarr_push( intarr_t* ia, int val )
 {
+	if (ia == NULL)
+	{
+		return INTARR_BADARRAY;
+	}
 
+	int* new_data = malloc((ia->len+1)*sizeof(int));
+
+	for( int i = 0; i<ia->len; i++)
+	{
+		new_data[i] = ia->data[i];
+	}
+	
+	if(new_data != NULL)
+	{
+		new_data[ia->len] = val;
+		ia->len = ia->len+1;
+		ia->data = new_data;
+		return INTARR_OK;
+	}
+	else
+	{
+		return INTARR_BADALLOC;
+	}
+	
 }
 
 // If the array is not empty, remove the value with the highest index
@@ -189,7 +213,22 @@ intarr_result_t intarr_push( intarr_t* ia, int val )
 // and return INTARR_BADINDEX. If ia is null, return INTARR_BADARRAY.
 intarr_result_t intarr_pop( intarr_t* ia, int* i )
 {
+	if (ia == NULL)
+	{
+		return INTARR_BADARRAY;
+	}
 
+	if (ia->len == 0)
+	{
+		return INTARR_BADINDEX;
+	}
+	
+	if ( i != NULL)
+	{
+		*i = ia->data[ia->len-1];
+		ia->data[ia->len-1] = 0;
+		return INTARR_OK;
+	}
 }
 
 /* LAB 5 TASK 7 */
