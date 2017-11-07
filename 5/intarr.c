@@ -286,6 +286,26 @@ intarr_t* intarr_copy_subarray( intarr_t* ia,
 				unsigned int first, 
 				unsigned int last )
 {
+	if (ia == NULL || first > ia->len || last > ia->len || last < first)
+	{
+		return NULL;
+	}
 
+	intarr_t* copy_arr = malloc(sizeof(intarr_t));
+
+	if (copy_arr == NULL)
+	{
+		return NULL;
+	}
+
+	int new_len = last-first+1;
+	copy_arr->len = new_len;
+	copy_arr->data = malloc(new_len*sizeof(int));
+
+	for(int i = 0; i<new_len; i++)
+	{
+		copy_arr->data[i] = ia->data[i];
+	}
+return copy_arr;
 }
 
