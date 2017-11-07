@@ -187,13 +187,15 @@ intarr_result_t intarr_push( intarr_t* ia, int val )
 		return INTARR_BADARRAY;
 	}
 
+	//next time remember realloc works from here to
 	int* new_data = malloc((ia->len+1)*sizeof(int));
 
 	for( int i = 0; i<ia->len; i++)
 	{
 		new_data[i] = ia->data[i];
 	}
-	
+	//here
+
 	if(new_data != NULL)
 	{
 		new_data[ia->len] = val;
@@ -248,27 +250,19 @@ intarr_result_t intarr_resize( intarr_t* ia, unsigned int newlen )
 		return INTARR_BADARRAY;
 	}
 	
-	int original_len = ia->len;
-	int i, j;	
+	int original_len = ia->len;	
 
 	if ( newlen >=0)
 	{
-		
 		ia->len = newlen;
-		int* new_data = malloc(newlen*sizeof(int));
-	
-		for ( i = 0; i<newlen; i++);
-		{
-			new_data[i] = ia->data[i];
-		}
-
+		int* new_data = realloc(ia->data, newlen*sizeof(int));
 		ia->data = new_data;
 
 		if(newlen > original_len)
 		{
-			for ( j = original_len; j<newlen; j++)
+			for ( int i = original_len; i<newlen; i++)
 			{
-				ia->data[j] = 0;
+				ia->data[i] = 0;
 			}
 		}
 	return INTARR_OK;
