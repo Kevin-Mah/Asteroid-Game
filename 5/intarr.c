@@ -299,12 +299,14 @@ intarr_t* intarr_copy_subarray( intarr_t* ia,
 	}
 
 	int new_len = last-first+1;
+	int j = 0;
 	copy_arr->len = new_len;
 	copy_arr->data = malloc(new_len*sizeof(int));
 
-	for(int i = 0; i<new_len; i++)
+	for(int i = first; i<=last; i++)
 	{
-		copy_arr->data[i] = ia->data[i];
+		copy_arr->data[j] = ia->data[i];
+		j++;
 	}
 return copy_arr;
 }
