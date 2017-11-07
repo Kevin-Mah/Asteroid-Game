@@ -242,7 +242,35 @@ intarr_result_t intarr_pop( intarr_t* ia, int* i )
 // INTARR_BADARRAY.
 intarr_result_t intarr_resize( intarr_t* ia, unsigned int newlen )
 {
+	if (ia == NULL)
+	{
+		return INTARR_BADARRAY;
+	}
+	
+	if ( newlen >=0)
+	{
+		int original_len = ia->len;
+		int i, j;
+		ia->len = newlen;
+		int* new_data = malloc(newlen*sizeof(int));
+	
+		for ( i = 0; i<newlen; i++);
+		{
+			new_data[i] = ia->data[i];
+		}
 
+		ia->data = new_data;
+
+		if(newlen > original_len)
+		{
+			for ( j = original_len; j<newlen; j++)
+			{
+				ia->data[j] = 0;
+			}
+		}
+	return INTARR_OK;
+	}
+return INTARR_BADALLOC;	
 }
 
 /* LAB 5 TASK 8 */
