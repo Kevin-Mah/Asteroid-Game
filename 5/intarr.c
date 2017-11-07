@@ -255,6 +255,7 @@ intarr_result_t intarr_resize( intarr_t* ia, unsigned int newlen )
 	if ( newlen >=0)
 	{
 		ia->len = newlen;
+		// realloc creates new sized memory allocation with original malloc
 		int* new_data = realloc(ia->data, newlen*sizeof(int));
 		ia->data = new_data;
 
