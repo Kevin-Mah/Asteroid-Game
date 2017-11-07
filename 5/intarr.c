@@ -247,10 +247,12 @@ intarr_result_t intarr_resize( intarr_t* ia, unsigned int newlen )
 		return INTARR_BADARRAY;
 	}
 	
+	int original_len = ia->len;
+	int i, j;	
+
 	if ( newlen >=0)
 	{
-		int original_len = ia->len;
-		int i, j;
+		
 		ia->len = newlen;
 		int* new_data = malloc(newlen*sizeof(int));
 	
