@@ -219,7 +219,7 @@ intarr_result_t intarr_pop( intarr_t* ia, int* i )
 		return INTARR_BADARRAY;
 	}
 	
-	if(ia->len == 0)
+	if(ia->data[0] == 0 && ia->len == 0)
 	{
 		return INTARR_BADINDEX;
 	}
@@ -299,6 +299,7 @@ intarr_t* intarr_copy_subarray( intarr_t* ia,
 	}
 
 	int new_len = last-first+1;
+	//j int so copy array starts at 0 instead of first
 	int j = 0;
 	copy_arr->len = new_len;
 	copy_arr->data = malloc(new_len*sizeof(int));
