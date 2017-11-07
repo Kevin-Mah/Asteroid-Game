@@ -14,14 +14,19 @@ void draw_circle( uint8_t img[],
 		  int r,
 		  uint8_t color )
 {
+	if (r == 0)
+	{
+		exit(0);
+	}
+
 	for (int i=0; i<rows; i++)
 	{
 		for (int j=0; j<cols; j++)
 		{
-			float a = sqrt((j-x)^2+(i-y)^2);
+			float a = sqrt((x-j)^2+(y-y)^2);
 			if(round(a) < r)
 			{ 
-				img[(cols*y)+x] = color;
+				img[(cols*i)+j] = color;
 			}
 		}
 	}
