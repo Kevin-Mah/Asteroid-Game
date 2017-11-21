@@ -8,24 +8,26 @@
 //initialize array struct
 void point_array_init( point_array_t* pa )
 {
-	pa->len = 0;
 	pa->points = realloc(pa->points, sizeof(point_t));
+	pa->len = 0;
 	pa->reserved = 0;
 }
 
 //reset the array to empty
 void point_array_reset( point_array_t* pa )
 {
+	pa->points = realloc(pa->points, sizeof(point_t));
 	pa->len = 0;
-	pa->points = realloc(pa->points, 0);
-	pa->reserved = 0;
+	pa->points[0].x = 0
+	pa->points[0].y = 0
+	pa->points[0].z = 0
 }
 
 // Append a point to the end of an array. If successful, return 0,
 // else return 1;
 int point_array_append( point_array_t* pa, point_t* p )
 {
-	if(pa == NULL || p == NULL)
+	if(pa->points == NULL || p == NULL)
 	{
 		return 1;
 	}
@@ -49,4 +51,5 @@ int point_array_remove( point_array_t* pa, unsigned int i )
 	pa->points[i].y = pa->points[pa->len].y;
 	pa->points[i].z = pa->points[pa->len].z;
 	pa->points = realloc( pa->points, sizeof(point_t)*pa->len);
+	return 0;
 }
