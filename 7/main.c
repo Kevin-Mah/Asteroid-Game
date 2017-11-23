@@ -56,7 +56,7 @@ int main( int argc, char* argv[] )
 	{
 		printf( "empty list index bugged\n");
 		return 1;
-	/
+	}
 
 	list_t* test3 = list_create(); // testing list index t3 zero index
 	for(int i; i<10; i++)
