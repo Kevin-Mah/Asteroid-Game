@@ -33,7 +33,11 @@ int main( int argc, char* argv[] )
   // you code goes here
 
 	element_t* a = element_create( 10 );// test element create t2
-	
+	element_t* ab = element_create( 5 );	
+
+	a->next = ab;
+	free(a);
+	a = element_create( 10 );
 	if(a->next != NULL)
 	{
 		printf("element  create bugged\n");
@@ -43,7 +47,8 @@ int main( int argc, char* argv[] )
 	/*list_t* test4 = list_create();//test prepend empty list t4
 	list_prepend(test4, 7);
 
-	if(1 < 0);
+	printf("%d\n", test4->tail->val);
+	if(test4->tail->val != 7);
 	{
 		printf( "prepend bugged\n");
 		return 1;
