@@ -447,8 +447,6 @@ void key_up( unsigned char key, int x, int y )
 	switch(key)
 	{
 		case 'z':
-			ship.da = 0;
-			break;
 		case 'x':
 			ship.da = 0;
 			break;
