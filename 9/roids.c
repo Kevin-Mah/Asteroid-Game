@@ -430,6 +430,14 @@ void roid_draw( const roid_t* roid )
 		  (roid->x+roid->width/2.0)-1, (roid->y+roid->height/2)-1,
 		  roid->color );
 
+	draw_rectangle( (roid->x-roid->width/2.0)+1, (roid->y-roid->height/2.0)-1, 
+		  (roid->x+roid->width/2.0)+1, (roid->y+roid->height/2)-1,
+		  roid->color );
+
+	draw_rectangle( (roid->x-roid->width/2.0)-1, (roid->y-roid->height/2.0)+1, 
+		  (roid->x+roid->width/2.0)-1, (roid->y+roid->height/2)+1,
+		  roid->color );
+
   }
 
 /* Remove all roids that have lifetime of zero from the global array
@@ -461,6 +469,7 @@ int shot_roid_hit( const shot_t* shot, const roid_t* roid )
 	  shot->x <= roid->x + roid->width/2 &&
 	  shot->y >= roid->y - roid->height/2 &&
 	  shot->y <= roid->y + roid->height/2 ||
+	//new code
 	shot->x >= (roid->x - roid->width/2)+1 &&
  	shot->x <= (roid->x + roid->width/2)+1 &&
 	shot->y >= (roid->y - roid->height/2)+1 &&
