@@ -151,6 +151,58 @@ void ship_draw( const ship_t* ship )
      more drawing so that the ship and its thrust jet appears to
      wrap around the 1x1 world correctly.
   */
+
+	draw_triangle( (ship->x + dx)+1, ship->y + dy,
+	 (ship->x + lx)+1, ship->y + ly,
+	 (ship->x + rx)+1, ship->y + ry,
+	 shipcolor );
+
+	  if( ship->thrust )
+	    {
+	      draw_triangle( (ship->x - dx)+1, ship->y - dy,
+			     (ship->x + lx)+1, ship->y + ly,
+			     (ship->x + rx)+1, ship->y + ry,
+			     thrustcolor );
+	    }
+
+	draw_triangle( (ship->x + dx)-1, ship->y + dy,
+	 (ship->x + lx)-1, ship->y + ly,
+	 (ship->x + rx)-1, ship->y + ry,
+	 shipcolor );
+
+	  if( ship->thrust )
+	    {
+	      draw_triangle( (ship->x - dx)-1, ship->y - dy,
+			     (ship->x + lx)-1, ship->y + ly,
+			     (ship->x + rx)-1, ship->y + ry,
+			     thrustcolor );
+	    }
+
+	draw_triangle( ship->x + dx, ship->y + dy+1,
+	 ship->x + lx, ship->y + ly+1,
+	 ship->x + rx, ship->y + ry+1,
+	 shipcolor );
+
+	  if( ship->thrust )
+	    {
+	      draw_triangle( ship->x - dx, ship->y - dy+1,
+			     ship->x + lx, ship->y + ly+1,
+			     ship->x + rx, ship->y + ry+1,
+			     thrustcolor );                 
+	    }
+
+	draw_triangle( ship->x + dx, ship->y + dy-1,
+	 ship->x + lx, ship->y + ly-1,
+	 ship->x + rx, ship->y + ry-1,
+	 shipcolor );
+
+	  if( ship->thrust )
+	    {
+	      draw_triangle( ship->x - dx, ship->y - dy-1,
+			     ship->x + lx, ship->y + ly-1,
+			     ship->x + rx, ship->y + ry-1,
+			     thrustcolor );                 
+	    }
 }
 
 // -- functions that operate on shots --------------------------------
