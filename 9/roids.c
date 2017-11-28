@@ -178,29 +178,29 @@ void ship_draw( const ship_t* ship )
 			     thrustcolor );
 	    }
 
-	draw_triangle( ship->x + dx, ship->y + dy+1,
-	 ship->x + lx, ship->y + ly+1,
-	 ship->x + rx, ship->y + ry+1,
+	draw_triangle( ship->x + dx, (ship->y + dy)+1,
+	 ship->x + lx, (ship->y + ly)+1,
+	 ship->x + rx, (ship->y + ry)+1,
 	 shipcolor );
 
 	  if( ship->thrust )
 	    {
-	      draw_triangle( ship->x - dx, ship->y - dy+1,
-			     ship->x + lx, ship->y + ly+1,
-			     ship->x + rx, ship->y + ry+1,
+	      draw_triangle( ship->x - dx, (ship->y - dy)+1,
+			     ship->x + lx, (ship->y + ly)+1,
+			     ship->x + rx, (ship->y + ry)+1,
 			     thrustcolor );                 
 	    }
 
-	draw_triangle( ship->x + dx, ship->y + dy-1,
-	 ship->x + lx, ship->y + ly-1,
-	 ship->x + rx, ship->y + ry-1,
+	draw_triangle( ship->x + dx, (ship->y + dy)-1,
+	 ship->x + lx, (ship->y + ly)-1,
+	 ship->x + rx, (ship->y + ry)-1,
 	 shipcolor );
 
 	  if( ship->thrust )
 	    {
-	      draw_triangle( ship->x - dx, ship->y - dy-1,
-			     ship->x + lx, ship->y + ly-1,
-			     ship->x + rx, ship->y + ry-1,
+	      draw_triangle( ship->x - dx, (ship->y - dy)-1,
+			     ship->x + lx, (ship->y + ly)-1,
+			     ship->x + rx, (ship->y + ry)-1,
 			     thrustcolor );                 
 	    }
 }
@@ -378,6 +378,23 @@ void roid_draw( const roid_t* roid )
      more drawing so that the roids appear to wrap around the
      1x1 world correctly.
   */
+	
+	draw_rectangle( (roid->x-roid->width/2.0)+1, roid->y-roid->height/2.0, 
+		  (roid->x+roid->width/2.0)+1, roid->y+roid->height/2,
+		  roid->color );
+
+	draw_rectangle( (roid->x-roid->width/2.0)-1, roid->y-roid->height/2.0, 
+		  (roid->x+roid->width/2.0)-1, roid->y+roid->height/2,
+		  roid->color );
+
+	draw_rectangle( roid->x-roid->width/2.0, (roid->y-roid->height/2.0)+1, 
+		  roid->x+roid->width/2.0, (roid->y+roid->height/2)+1,
+		  roid->color );
+
+	draw_rectangle( roid->x-roid->width/2.0, (roid->y-roid->height/2.0)-1, 
+		  roid->x+roid->width/2.0, (roid->y+roid->height/2)-1,
+		  roid->color );
+
   }
 
 /* Remove all roids that have lifetime of zero from the global array
