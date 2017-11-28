@@ -456,19 +456,19 @@ int shot_roid_hit( const shot_t* shot, const roid_t* roid )
   /* TODO: modify this code so it takes into account the toroidal
      shape of the world.
    */
-  
+  return(shot->x >= (roid->x - roid->width/2)+1 && 	
+	shot->x <= (roid->x + roid->width/2)+1 &&
+ 	shot->x >= (roid->x - roid->width/2)-1 &&
+ 	shot->x <= (roid->x + roid->width/2)-1 &&
+ 	shot->y >= (roid->y - roid->height/2)+1 &&
+ 	shot->y <= (roid->y + roid->height/2)+1 &&
+ 	shot->y >= (roid->y - roid->height/2)-1 &&
+ 	shot->y <= (roid->y + roid->height/2)-1);
+
   return( shot->x >= roid->x - roid->width/2 &&
 	  shot->x <= roid->x + roid->width/2 &&
 	  shot->y >= roid->y - roid->height/2 &&
-	  shot->y <= roid->y + roid->height/2 &&
-	shot->x >= (roid->x - roid->width/2)+1 &&
-	shot->x <= (roid->x + roid->width/2)+1 &&
-	shot->x >= (roid->x - roid->width/2)-1 &&
-	shot->x <= (roid->x + roid->width/2)-1 &&
-	shot->y >= (roid->y - roid->height/2)+1 &&
-	shot->y <= (roid->y + roid->height/2)+1 &&
-	shot->y >= (roid->y - roid->height/2)-1 &&
-	shot->y <= (roid->y + roid->height/2)-1);
+	  shot->y <= roid->y + roid->height/2);
 
 }
 
