@@ -29,6 +29,12 @@ intarr_t* intarr_load_binary( const char* filename )
 	}
 
 	FILE* f = fopen("filename", "r");
+
+	if(f==NULL)
+	{
+		return NULL;
+	}
+
 	fseek(f, 0 ,SEEK_END);
 	int size = ftell(f)/sizeof(int);
 
