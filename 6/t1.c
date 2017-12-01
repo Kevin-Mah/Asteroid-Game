@@ -30,11 +30,6 @@ intarr_t* intarr_load_binary( const char* filename )
 
 	FILE* f = fopen("filename", "r");
 
-	if(f==NULL)
-	{
-		return NULL;
-	}
-
 	fseek(f, 0 ,SEEK_END);
 	int size = ftell(f)/sizeof(int);
 
@@ -45,7 +40,16 @@ intarr_t* intarr_load_binary( const char* filename )
 	arr->len = size;
 	arr->data = malloc(sizeof(int)*size);
 
-	fread(arr->data, sizeof(int), size, f);
-	fclose(f);
-	return arr;
+	int read_len = fread(arr->data, sizeof(int), size, f);
+
+	if(read_len == arr->len)
+	{	
+		fclose(f);
+		return arr;
+	}
+	else
+	{
+		fclose(f);
+		return NULL;
+	}
 }
