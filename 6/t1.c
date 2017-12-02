@@ -15,7 +15,7 @@ int intarr_save_binary( intarr_t* ia, const char* filename )
 		return 1;
 	}
 
-	FILE* f = fopen("filename", "w");
+	FILE* f = fopen(filename, "w");
 	fwrite(ia->data, sizeof(int), ia->len, f);
 	fclose( f );
 	return 0;
