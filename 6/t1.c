@@ -44,9 +44,10 @@ intarr_t* intarr_load_binary( const char* filename )
 	arr->len = size;
 	arr->data = malloc(sizeof(int)*size);
 
-	if(f)
+	int read_len = fread(arr->data, sizeof(int), size, f);
+
+	if(read_len == arr->len)
 	{
-		fread(arr->data, sizeof(int), size, f);
 		fclose(f);
 		return arr;
 	}
