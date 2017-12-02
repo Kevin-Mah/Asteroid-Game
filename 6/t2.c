@@ -67,10 +67,16 @@ intarr_t* intarr_load_json( const char* filename )
 	arr->len = number+1;//numbers in array = number of commas plus 1
 	arr->data = malloc(sizeof(int)*arr->len);
 
-	for (int i = 1; i<arr->len; i++)
+	int j = 0
+
+	for (int i = 0; i<arr->len; i++)
 	{
-		fscanf( f, "%d", &arr->data[i]);
-		fseek( f , 1 , SEEK_CUR);//skip commas
+		while(fscanf( f, "%d", &j) != 1)
+		{
+			fseek( f , 1 , SEEK_CUR);//skip commas
+		}
+		
+		arr->data[i] = k;
 	}
 	fclose(f);
 	return arr;
