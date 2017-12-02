@@ -28,7 +28,7 @@ intarr_t* intarr_load_binary( const char* filename )
 		return NULL;
 	}
 
-	FILE* f = fopen("filename", "r");
+	FILE* f = fopen(filename, "r");
 	if( f == NULL)
 	{
 		return NULL;
