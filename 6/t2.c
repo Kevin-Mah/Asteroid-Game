@@ -71,12 +71,8 @@ intarr_t* intarr_load_json( const char* filename )
 
 	for (int i = 0; i<arr->len; i++)
 	{
-		while(fscanf( f, "%d", &j) != 1)
-		{
-			fseek( f , 1 , SEEK_CUR);//skip commas
-		}
-		
-		arr->data[i] = j;
+		fscanf( f, "%d", &arr->data[i]);
+		fseek( f , 1 , SEEK_CUR);//skip commas
 	}
 	fclose(f);
 	return arr;
