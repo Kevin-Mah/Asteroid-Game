@@ -62,7 +62,7 @@ int point_array_append( point_array_t* pa, point_t* p )
 // the array by one. The order of points in the array may change.
 int point_array_remove( point_array_t* pa, unsigned int i )
 {
-	if(i >= pa->len)
+	if(i >= pa->len || pa->len == 0)
 	{
 		return 1;
 	}
