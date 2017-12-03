@@ -8,19 +8,19 @@
 //initialize array struct
 void point_array_init( point_array_t* pa )
 {
-	pa->points = realloc(pa->points, sizeof(point_t));
 	pa->len = 0;
 	pa->reserved = 0;
+	pa->points = realloc(pa->points, sizeof(point_t));
 }
 
 //reset the array to empty
 void point_array_reset( point_array_t* pa )
 {
-	pa->points = realloc(pa->points, 0);
 	pa->len = 0;
 	pa->points[0].x = 0;
 	pa->points[0].y = 0;
 	pa->points[0].z = 0;
+	pa->points = realloc(pa->points, 0);
 }
 
 // Append a point to the end of an array. If successful, return 0,
