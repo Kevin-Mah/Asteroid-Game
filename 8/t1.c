@@ -16,7 +16,7 @@ void point_array_init( point_array_t* pa )
 //reset the array to empty
 void point_array_reset( point_array_t* pa )
 {
-	pa->points = realloc(pa->points, sizeof(point_t));
+	pa->points = realloc(pa->points, 0);
 	pa->len = 0;
 	pa->points[0].x = 0;
 	pa->points[0].y = 0;
