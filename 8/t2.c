@@ -47,6 +47,7 @@ int point_array_append( point_array_t* pa, point_t* p )
 		pa->points[pa->len-1].x = p->x;
 		pa->points[pa->len-1].y = p->y;
 		pa->points[pa->len-1].z = p->z;
+		pa->len = pa->len+1;
 	}
 
 	if(pa->reserved == pa->len)
@@ -62,7 +63,7 @@ int point_array_append( point_array_t* pa, point_t* p )
 // the array by one. The order of points in the array may change.
 int point_array_remove( point_array_t* pa, unsigned int i )
 {
-	if(i >= pa->len )
+	if(i >= pa->len || pa->len == 0 )
 	{
 		return 1;
 	}
@@ -71,6 +72,9 @@ int point_array_remove( point_array_t* pa, unsigned int i )
 	pa->points[i].x = pa->points[pa->len].x;
 	pa->points[i].y = pa->points[pa->len].y;
 	pa->points[i].z = pa->points[pa->len].z;
-	pa->points = realloc( pa->points, sizeof(point_t)*pa->len);
+	//since we have reserved space no need to reallocate just change array end to 0
+	pa->points[pa->len].x = 0;
+	pa->points[pa->len].y = 0;
+	pa->points[pa->len].z = 0;
 	return 0;
 }
