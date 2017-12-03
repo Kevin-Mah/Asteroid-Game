@@ -20,7 +20,7 @@ void point_array_reset( point_array_t* pa )
 	pa->points[0].x = 0;
 	pa->points[0].y = 0;
 	pa->points[0].z = 0;
-	pa->points = malloc(0);
+	pa->points = malloc(sizeof(point_t));
 }
 
 // Append a point to the end of an array. If successful, return 0,
@@ -46,6 +46,11 @@ int point_array_append( point_array_t* pa, point_t* p )
 // the array by one. The order of points in the array may change.
 int point_array_remove( point_array_t* pa, unsigned int i )
 {
+	if(i >= pa->len)
+	{
+		return 1;
+	}
+
 	pa->len = pa->len-1;
 	pa->points[i].x = pa->points[pa->len].x;
 	pa->points[i].y = pa->points[pa->len].y;
