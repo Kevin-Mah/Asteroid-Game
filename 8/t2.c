@@ -62,9 +62,15 @@ int point_array_append( point_array_t* pa, point_t* p )
 // the array by one. The order of points in the array may change.
 int point_array_remove( point_array_t* pa, unsigned int i )
 {
-	if(i >= pa->len || pa->len == 0)
+	if(i >= pa->len )
 	{
 		return 1;
+	}
+	
+	if(pa->len == 0)
+	{
+		pa->points = realloc( pa->points, sizeof(point_t));
+		return 0;
 	}
 
 	pa->len = pa->len-1;
