@@ -67,19 +67,10 @@ int point_array_remove( point_array_t* pa, unsigned int i )
 		return 1;
 	}
 	
-	if(pa->len == 0)
-	{
-		pa->points = realloc( pa->points, sizeof(point_t));
-		return 0;
-	}
-
 	pa->len = pa->len-1;
 	pa->points[i].x = pa->points[pa->len].x;
 	pa->points[i].y = pa->points[pa->len].y;
 	pa->points[i].z = pa->points[pa->len].z;
-	//since we have reserved space no need to reallocate just change array end to 0
-	pa->points[pa->len].x = 0;
-	pa->points[pa->len].y = 0;
-	pa->points[pa->len].z = 0;
+	pa->points = realloc( pa->points, sizeof(point_t)*pa->len);
 	return 0;
 }
