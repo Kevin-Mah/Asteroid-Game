@@ -44,15 +44,15 @@ int main( int argc, char* argv[] )
 		return 1;
 	}
 
-	/*list_t* test4 = list_create();//test prepend empty list t4
+	list_t* test4 = list_create();//test prepend empty list t4
 	list_prepend(test4, 7);
 
 	printf("%d\n", test4->tail->val);
-	if(test4->tail->val != 7);
+	if(test4->tail->val != 7)
 	{
 		printf( "prepend bugged\n");
 		return 1;
-	}*/
+	}
 
 	list_t* test1 = list_create(); // testing list index t1 empty llst
 	element_t* b = list_index(test1, 1);
