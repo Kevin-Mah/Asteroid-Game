@@ -51,7 +51,7 @@ intarr_t* intarr_load_json( const char* filename )
 	
 	//finding number of commas
 	int number = 0;
-	while( !feof )
+	while( !feof(f) )
 	{
 		char comma = getc(f);
 		if( comma == ',' )
@@ -67,7 +67,6 @@ intarr_t* intarr_load_json( const char* filename )
 	arr->len = number+1;//numbers in array = number of commas plus 1
 	arr->data = malloc(sizeof(int)*arr->len);
 
-	int j = 0;
 
 	for (int i = 0; i<arr->len; i++)
 	{
@@ -77,3 +76,5 @@ intarr_t* intarr_load_json( const char* filename )
 	fclose(f);
 	return arr;
 }
+
+
