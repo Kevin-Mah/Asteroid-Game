@@ -50,29 +50,32 @@ intarr_t* intarr_load_json( const char* filename )
 	}
 	
 
-	//finding number of spaces
+	//finding number of commas
 	int number = 0;
 	while( !feof(f) )
 	{
 		char comma = getc(f);
-		if( comma == ' ' )
+		if( comma == ',' )
 		{
 			number++;
 		}
 	}
 
-	//printf("%d\n", number);
+	printf("%d\n", number);
 	fseek(f, 0 , SEEK_SET);
 	
 	intarr_t* arr = malloc(sizeof(intarr_t));
 
 
-	arr->len = number-1;//numbers in array = number of spaces minus 1
-	if(arr->len == 0)
+	
+	if(number == 0)
 	{
+		arr->len = 0;
 		arr->data = NULL;
 		return arr;
 	}
+
+	arr->len = number+1;//numbers in array = number of commas plus 1
 	arr->data = malloc(sizeof(int)*arr->len);
 
 	for (int i = 0; i<arr->len; i++)
