@@ -61,7 +61,7 @@ intarr_t* intarr_load_json( const char* filename )
 		}
 	}
 
-	
+	//printf("%d\n", number);
 	fseek(f, 0 , SEEK_SET);
 	
 	intarr_t* arr = malloc(sizeof(intarr_t));
