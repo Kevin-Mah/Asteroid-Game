@@ -49,28 +49,30 @@ intarr_t* intarr_load_json( const char* filename )
 		return NULL;
 	}
 	
-	//finding number of commas
+
+	//finding number of spaces
 	int number = 0;
 	while( !feof(f) )
 	{
 		char comma = getc(f);
-		if( comma == ',' )
+		if( comma == ' ' )
 		{
 			number++;
 		}
 	}
 
+	
 	fseek(f, 0 , SEEK_SET);
 	
 	intarr_t* arr = malloc(sizeof(intarr_t));
 
-	arr->len = number+1;//numbers in array = number of commas plus 1
-	arr->data = malloc(sizeof(int)*arr->len);
 
+	arr->len = number-1;//numbers in array = number of spaces minus 1
+	arr->data = malloc(sizeof(int)*arr->len);
 
 	for (int i = 0; i<arr->len; i++)
 	{
-		fseek( f , 1 , SEEK_CUR);//skip comm and first bracket
+		fseek( f , 1 , SEEK_CUR);//skip comma and first bracket
 		fscanf( f, "%d", &arr->data[i]);
 	}
 	fclose(f);
