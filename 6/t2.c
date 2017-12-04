@@ -68,6 +68,11 @@ intarr_t* intarr_load_json( const char* filename )
 
 
 	arr->len = number-1;//numbers in array = number of spaces minus 1
+	if(arr->len == 0)
+	{
+		arr->data = NULL;
+		return arr;
+	}
 	arr->data = malloc(sizeof(int)*arr->len);
 
 	for (int i = 0; i<arr->len; i++)
